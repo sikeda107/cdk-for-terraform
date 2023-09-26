@@ -1,4 +1,4 @@
 {
   "ignorePaths": ["node_modules", "package-lock.json", "package.json", ".eslintrc.json"],
-  "words": ["cdktf"]
+  "words": ["cdktf", "lcov", "synthesised", "unmocked"]
 }
