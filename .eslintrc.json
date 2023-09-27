@@ -1,0 +1,81 @@
+{
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true
+  },
+  "extends": ["standard", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType": "module"
+  },
+  "globals": { "FormData": true, "location": true, "File": true },
+  "plugins": ["eslint-plugin-prefer-arrow", "@typescript-eslint", "no-only-tests", "eslint-plugin-import"],
+  "root": true,
+  "ignorePatterns": ["cdktf.out/**", "node_modules/**", "*.json", "*.js", "tmp/**"],
+  "rules": {
+    "yoda": 1,
+    "camelcase": 1,
+    "prefer-const": 1,
+    "spaced-comment": 1,
+    "generator-star-spacing": 0,
+    "prefer-regex-literals": 1,
+    "array-callback-return": 1,
+    "lines-between-class-members": 1,
+    "dot-notation": 1,
+    "default-case-last": 1,
+    "no-irregular-whitespace": 1,
+    "no-return-await": 1,
+    "no-lone-blocks": 1,
+    "no-template-curly-in-string": 1,
+    "no-use-before-define": 1,
+    "no-useless-constructor": 0,
+    "no-useless-escape": 1,
+    "no-useless-return": 1,
+    "no-useless-catch": 1,
+    "no-throw-literal": 1,
+    "no-extra-boolean-cast": 1,
+    "no-case-declarations": 1,
+    // import/no-duplicates is disabled because it is slow execution about 7000ms
+    "import/no-duplicates": 0,
+    "no-console": ["warn", { "allow": ["info", "warn", "error", "dir", "table"] }],
+    "no-only-tests/no-only-tests": [
+      1,
+      {
+        "focus": ["only", "skip"]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/ban-types": 1,
+    "@typescript-eslint/no-floating-promises": [
+      "warn",
+      {
+        "ignoreIIFE": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
+        "pathGroups": [],
+        "pathGroupsExcludedImportTypes": [],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always",
+        "warnOnUnassignedImports": true
+      }
+    ],
+    "no-new": 0 // In CDKTF, it is customary to create resources with new
+  }
+}
